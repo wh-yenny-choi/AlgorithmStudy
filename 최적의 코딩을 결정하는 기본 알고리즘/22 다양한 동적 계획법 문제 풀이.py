@@ -54,14 +54,15 @@ for i in range(n):
     array.append(int(input()))
 
 # 한 번 계산된 결과를 저장하기 위한 DP 테이블 초기화
-d = [10001] * (m + 1)
+d = [10001] * (m + 1)  # 0원부터 m원까지
 
 # 다이나믹 프로그래밍 (Dynamic Programming) 진행 (보텀업)
 d[0] = 0
-for i in range(n):
-    for j in range(array[i], m + 1):
+for i in range(n):  # i = 각 화폐의 단위
+    for j in range(array[i], m + 1):  # j = 각 금액, 각 화폐의 단위 1개씩 확인하면서 모든 금액 확인하며 옵티멀 솔루션
         if d[j - array[i]] != 10001:  # (i - k)원을 만드는 방법이 존재하는 경우
-            d[j] = min(d[j], d[j - array[i]] + 1)
+            d[j] = min(d[j], d[j - array[i]] + 1)  # 현재의 값과 (옵티멀 솔루션 + 1)값 비교하여 최솟값 갱신
+            # 점화식 그대로 사용
 
 # 계산된 결과 출력
 if d[m] == 10001:  # 최종적으로 M원을 만드는 방법이 없는 경우
@@ -80,10 +81,10 @@ for tc in range(int(input())):
     dp = []
     index = 0
     for i in range(n):
-        dp.append(array[index:index + m])
+        dp.append(array[index:index + m])  # m 단위로 데이터를 슬라이싱하여 dp테이블에 담아 전체 데이터를 2차원 데이터로
         index += m
     #다이나믹 프로그래밍 진행
-    for j in range(1, m):
+    for j in range(1, m):  # 매 열 확인 ( = 오른쪽으로 이동)
         for i in range(n):
             # 왼쪽 위에서 오는 경우
             if i == 0: left_up = 0
