@@ -5,13 +5,14 @@ n = int(input())
 array = list(map(int, input().split()))
 
 # 앞서 계산된 결과를 저장하기 위한 DP 테이블 초기화
-d = [0] * 100
+d = [0] * 100  # 100만큼의 크기를 가지는 list생성
 
-# 다이나믹 프로그래밍 (Dynamic Programming) 진행 (보텀업)
-d[0] = array[0]
-d[1] = max(array[0], array[1])
-for i in range(2, n):
-    d[i] = max(d[i - 1], d[i -2] + array[i])
+# 다이나믹 프로그래밍 (Dynamic Programming) 진행 (보텀업) - DP테이블 초기화
+d[0] = array[0]  # 첫번째 항 제일 큰 값은 첫 번째 원소
+d[1] = max(array[0], array[1])  # 두번째 항 최댓값을 고름
+for i in range(2, n):  # 3번째 항부터 n까지 비교
+    d[i] = max(d[i - 1], d[i -2] + array[i])  # array[i]는 현재 위치
+    # 점화식 그대로 사용
 
 # 계산된 결과 출력
 print(d[n - 1])
@@ -22,12 +23,13 @@ print(d[n - 1])
 x = int(input())
 
 # 앞서 계산된 결과를 저장하기 위한 DP테이블 초기화
-d = [0] * 30001
+d = [0] * 30001  # 30000까지 들어오도록
 
 # 다이나믹 프로그래밍 (Dynamic Programming) 진행 (보텀업)
+# 옵티멀 솔루션 값 구하기
 for i in range(2, x + 1):
     # 현재의 수에서 1을 빼는 경우
-    d[i] = d[i - 1] + 1
+    d[i] = d[i - 1] + 1  # 최적값으로 스위칭
     # 현재 수가 2로 나누어 떨어지는 경우
     if i % 2 == 0:
         d[i] = min(d[i], d[i // 2] + 1)
@@ -37,7 +39,9 @@ for i in range(2, x + 1):
     # 현재의 수가 5로 나누어 떨어지는 경우
     if i % 5 == 0:
         d[i] = min(d[i], d[i // 5] + 1)
-
+    # 4가지 경우 (if로직 3번)를 통해 최저값을 현재의 값으로 갱신
+    # 점화식 그대로 구현하여 정답 유도
+    
 print(d[x])
 
 
