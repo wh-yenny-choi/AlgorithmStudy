@@ -7,9 +7,9 @@ count = 0
 interval_sum = 0  # 부분합
 end = 0
 
-# start를 차례대로 증가시키며 반복
+# start 를 차례대로 증가시키며 반복
 for start in range(n):
-    # end를 가능한 만큼 이동시키기
+    # end 를 가능한 만큼 이동시키기
     while interval_sum < m and end < n:
         interval_sum += data[end]
         end += 1
