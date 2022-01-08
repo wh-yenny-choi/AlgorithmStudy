@@ -1,0 +1,9 @@
+# 한 줄 입력받아 출력하는 소스코드
+
+# sys 라이브러리 사용
+import sys
+# 하나의 문자열 데이터 입력받기
+input_data = sys.stdin.readline().rstrip()
+
+# 입력받은 문자열 그대로 출력
+print(input_data)
