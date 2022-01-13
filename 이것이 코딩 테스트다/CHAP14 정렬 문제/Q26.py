@@ -35,3 +35,47 @@ while len(heap) != 1:
     heapq.heappush(heap, sum_value)
 
 print(result)
+
+
+
+
+import heapq
+
+n = int(input())
+heap = []
+result = 0
+for i in range(n):
+    card = int(input())
+    heapq.heappush(heap, card)
+
+while len(card) != 1:
+    one = heapq.heappop(heap)
+    two = heapq.heappop(heap)
+    sum = one + two
+    result += sum
+    heapq.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
