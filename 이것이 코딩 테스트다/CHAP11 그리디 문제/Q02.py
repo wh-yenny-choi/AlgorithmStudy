@@ -17,31 +17,31 @@ Q02 곱하기 혹은 더하기
 '''
 ## 1
 
-# 문자열 S 입력받기
-s = input()
-result = int(s[0])
-
-'''
-아이디어 : 숫자가 1이하면 + 아니면 모두 * 연산 실행, result 로 대체
-'''
-for i in range(1, len(s)):
-    num = int(s[i])
-    if result <= 1 or num <= 1:
-        result += num
-    else:
-        result *= num
-
-print(result)
-
-## 2
-s = input()
-data = int(s[0])
-
-for i in s:
-    if s[i] <= 1:
-        s[i] + s[i + 1]
-    else:
-        s[i] * s[i + 1]
+# # 문자열 S 입력받기
+# s = input()
+# result = int(s[0])
+#
+# '''
+# 아이디어 : 숫자가 1이하면 + 아니면 모두 * 연산 실행, result 로 대체
+# '''
+# for i in range(1, len(s)):
+#     num = int(s[i])
+#     if result <= 1 or num <= 1:
+#         result += num
+#     else:
+#         result *= num
+#
+# print(result)
+#
+# ## 2
+# s = input()
+# data = int(s[0])
+#
+# for i in s:
+#     if s[i] <= 1:
+#         s[i] + s[i + 1]
+#     else:
+#         s[i] * s[i + 1]
 
 '''
 풀이
@@ -49,31 +49,49 @@ for i in s:
 문자열이 입력되었을 때 모든 숫자를 기준으로 나눈 뒤에, 앞에서부터 연산 수행
 현재까지의 계산 결과를 result에 담은 상태로, 매 숫자에 대하여 연산 수행
 '''
+# s = input()
+# # 첫 번째 문자를 숫자로 변경하여 대입
+# result = int(s[0])  # 첫 번째 문자를 숫자로 변경하여 대입
+#
+# for i in range(1, len(s)):
+#     # 두 수 중 하나라도 '0' 혹은 '1'인 경우, 곱하기보다는 더하기 수행
+#     num = int(s[i])
+#     if num <= 1 or result <= 1:
+#         result += num
+#     else:
+#         result += num
+#
+# print(result)
+
+
+
+# # 2
+# s = input()
+# result = 0
+#
+# for i in s:
+#     num = int(s[i])
+#     if num <= 1:
+#         result += num
+#     else:
+#         result *= num
+#
+# print(result)
+
+
+
+
 s = input()
-# 첫 번째 문자를 숫자로 변경하여 대입
-result = int(s[0])  # 첫 번째 문자를 숫자로 변경하여 대입
+result = int(s[0])
 
 for i in range(1, len(s)):
-    # 두 수 중 하나라도 '0' 혹은 '1'인 경우, 곱하기보다는 더하기 수행
     num = int(s[i])
     if num <= 1 or result <= 1:
         result += num
     else:
-        result += num
+        result *= num
 
 print(result)
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

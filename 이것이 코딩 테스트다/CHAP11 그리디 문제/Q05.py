@@ -39,3 +39,38 @@ for i in range(1, m + 1):
     result += array[i] * n  # B가 선택하는 경우의 수와 곱하기
     
 print(result)
+
+
+
+
+n, m = map(int, input().split())
+k = map(int, input().split())
+
+array = [0] * 11
+
+for x in k:
+    array[x] += 1
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
